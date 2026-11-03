@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mario · 个人主页</title>
+  <style>
+    :root {
+      --bg: #000000;
+      --surface: #111111;
+      --surface-hover: #1a1a1a;
+      --border: #262626;
+      --text: #f5f5f5;
+      --muted: #a3a3a3;
+      --accent: #e52521; /* Mario red */
+      --accent-soft: rgba(229, 37, 33, 0.12);
+      --radius: 16px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+        "Hiragino Sans GB", "Microsoft YaHei", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 64px 24px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 760px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 48px 40px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+    }
+
+    .profile {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .avatar {
+      width: 96px;
+      height: 96px;
+      flex: 0 0 96px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 40px;
+      font-weight: 700;
+      letter-spacing: -1px;
+      color: #fff;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px var(--accent-soft);
+      user-select: none;
+    }
+
+    h1 {
+      margin: 0 0 4px;
+      font-size: 2.25rem;
+      line-height: 1.2;
+      letter-spacing: -0.5px;
+    }
+
+    .tagline {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .role {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 2px 10px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border: 1px solid rgba(229, 37, 33, 0.3);
+    }
+
+    section { margin-top: 40px; }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    p.about {
+      margin: 0;
+      color: #d4d4d4;
+      font-size: 1rem;
+    }
+
+    ul.skills {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    ul.skills li {
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #0b0b0b;
+      color: #e5e5e5;
+      font-size: 0.875rem;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .links a {
+      flex: 1 1 160px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: #0b0b0b;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: background-color 0.2s ease, border-color 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .links a:hover,
+    .links a:focus-visible {
+      background: var(--surface-hover);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      outline: none;
+    }
+
+    .links a span.arrow {
+      color: var(--accent);
+    }
+
+    footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      color: #525252;
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 560px) {
+      body { padding: 24px 16px; }
+      .card { padding: 32px 24px; }
+      h1 { font-size: 1.75rem; }
+      .avatar { width: 72px; height: 72px; flex-basis: 72px; font-size: 30px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <header class="profile">
+      <div class="avatar" aria-hidden="true">M</div>
+      <div>
+        <h1>Mario</h1>
+        <p class="tagline">热爱解决问题的开发者</p>
+        <span class="role">Full-stack Developer</span>
+      </div>
+    </header>
+
+    <section aria-labelledby="about-title">
+      <h2 id="about-title">关于我</h2>
+      <p class="about">
+        你好，我是 Mario。我喜欢把复杂的需求拆成清晰的小问题，再用简洁可靠的代码把它们一个个解决。
+        平时关注 Web 开发、用户体验与工程质量，也乐于分享踩过的坑和学到的新东西。
+      </p>
+    </section>
+
+    <section aria-labelledby="skills-title">
+      <h2 id="skills-title">技能</h2>
+      <ul class="skills">
+        <li>HTML / CSS</li>
+        <li>JavaScript</li>
+        <li>TypeScript</li>
+        <li>React</li>
+        <li>Node.js</li>
+        <li>Git</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="links-title">
+      <h2 id="links-title">联系我</h2>
+      <div class="links">
+        <a href="mailto:mario@example.com">Email <span class="arrow" aria-hidden="true">→</span></a>
+        <a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub <span class="arrow" aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+
+    <footer>© 2026 Mario. Built with plain HTML &amp; CSS.</footer>
+  </main>
+</body>
+</html>
